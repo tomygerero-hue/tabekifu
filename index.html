@@ -1,0 +1,965 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="坂入千佳が代表を務める株式会社tabekifuの公式サイト。一般社団法人シゼンタイ理事としての活動と、自然栽培を軸にした体験、対話、組織づくり、地域プロジェクトを紹介します。">
+  <meta property="og:title" content="坂入千佳｜tabekifu・シゼンタイで自然栽培から人と社会を整える">
+  <meta property="og:description" content="坂入千佳が代表を務める株式会社tabekifuの公式サイト。シゼンタイでの活動と、自然栽培を軸にした体験・対話・組織づくりを紹介します。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/hero-field.jpg">
+  <title>坂入千佳｜tabekifu・シゼンタイで自然栽培から人と社会を整える</title>
+  <style>
+    :root {
+      --ink: #243027;
+      --muted: #687069;
+      --paper: #fffdf8;
+      --soft: #f2efe6;
+      --leaf: #315f3a;
+      --leaf-2: #76915d;
+      --soil: #8a5d3b;
+      --petal: #d89f97;
+      --line: rgba(36, 48, 39, .14);
+      --shadow: 0 24px 70px rgba(36, 48, 39, .16);
+      --radius: 8px;
+      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.85;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    a { color: inherit; }
+
+    .site-header {
+      position: fixed;
+      z-index: 20;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+    }
+
+    .header-inner {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .brand-logo {
+      width: 126px;
+      height: 46px;
+      object-fit: contain;
+    }
+
+    .nav {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .nav a {
+      position: relative;
+      text-decoration: none;
+      padding: 8px 0;
+    }
+
+    .nav a:not(.button)::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 2px;
+      height: 2px;
+      background: var(--leaf);
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform .22s ease;
+    }
+
+    .nav a:not(.button):hover::after,
+    .nav a:not(.button):focus-visible::after {
+      transform: scaleX(1);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 10px 18px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+    .button.primary {
+      background: var(--leaf);
+      color: #fff;
+    }
+    .button.secondary {
+      color: var(--leaf);
+      border-color: rgba(49, 95, 58, .35);
+      background: rgba(255, 255, 255, .56);
+    }
+
+    .hero {
+      min-height: 94vh;
+      padding: 108px 0 64px;
+      display: grid;
+      align-items: center;
+      background: url("assets/hero-field.jpg") center center / cover no-repeat;
+    }
+
+    .hero-inner {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 620px) minmax(240px, 1fr);
+      gap: 36px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      color: var(--soil);
+      font-weight: 700;
+      margin: 0 0 12px;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      font-size: clamp(38px, 5.1vw, 68px);
+      line-height: 1.12;
+      margin-bottom: 22px;
+      font-weight: 800;
+      letter-spacing: 0;
+      font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+      white-space: nowrap;
+    }
+
+    .hero h1 {
+      color: #fff;
+      text-shadow: 0 3px 18px rgba(0, 0, 0, .34);
+    }
+
+    .mobile-title-break {
+      display: none;
+    }
+
+    .hero .eyebrow {
+      color: var(--ink);
+    }
+
+    .lead {
+      font-size: clamp(18px, 2.2vw, 24px);
+      line-height: 1.8;
+      color: #3b463e;
+      max-width: 610px;
+      margin-bottom: 30px;
+    }
+
+    .hero .lead {
+      color: #fff;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, .36);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .section {
+      padding: 88px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section.alt { background: var(--soft); }
+    .inner {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 380px) minmax(0, 1fr);
+      gap: 44px;
+      align-items: start;
+      margin-bottom: 42px;
+    }
+
+    h2 {
+      font-size: clamp(28px, 4vw, 46px);
+      line-height: 1.26;
+      letter-spacing: 0;
+      margin-bottom: 0;
+      font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 17px;
+      margin-bottom: 0;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 440px);
+      gap: 34px;
+      align-items: stretch;
+    }
+
+    .quote-panel {
+      padding: 34px;
+      background: #fff;
+      border-radius: var(--radius);
+    }
+
+    .quote-panel strong {
+      display: block;
+      font-size: clamp(24px, 3.6vw, 42px);
+      line-height: 1.35;
+      margin-bottom: 22px;
+      color: var(--leaf);
+    }
+
+    .image-tall {
+      min-height: 460px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .service {
+      min-height: 280px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .service-icon {
+      width: 58px;
+      height: 58px;
+      margin-bottom: 18px;
+      color: var(--leaf);
+    }
+
+    .service-icon svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .service h3 {
+      font-size: 21px;
+      line-height: 1.45;
+      margin-bottom: 14px;
+    }
+
+    .service p {
+      color: var(--muted);
+      margin-bottom: 0;
+      font-size: 15px;
+    }
+
+    .service-link {
+      display: inline-flex;
+      margin-top: 18px;
+      color: var(--leaf);
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(49, 95, 58, .38);
+      width: fit-content;
+    }
+
+    .service-intro {
+      margin: -10px 0 38px;
+      max-width: 980px;
+      color: #4d574f;
+      font-size: 16px;
+      line-height: 2;
+    }
+
+    .service span {
+      display: inline-block;
+      width: 42px;
+      height: 4px;
+      background: var(--leaf-2);
+      margin-top: 24px;
+    }
+
+    .story {
+      display: grid;
+      grid-template-columns: minmax(270px, 430px) minmax(0, 1fr);
+      gap: 42px;
+      align-items: start;
+    }
+
+    .story-image {
+      aspect-ratio: 4 / 5;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .story-copy p {
+      color: #49544c;
+      font-size: 17px;
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .pillar {
+      min-height: 230px;
+      padding: 24px;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .7);
+      border: 1px solid rgba(36, 48, 39, .1);
+    }
+
+    .pillar img {
+      height: 150px;
+      border-radius: 6px;
+      margin-bottom: 18px;
+    }
+
+    .pillar h3 {
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+
+    .pillar p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 0;
+    }
+
+    .philosophy-note {
+      margin: 18px 0 34px;
+      padding: 0;
+      color: #465047;
+      font-size: 17px;
+      line-height: 2;
+    }
+
+    .philosophy-note p {
+      margin: 0 0 18px;
+    }
+
+    .philosophy-note p:last-child {
+      margin-bottom: 0;
+    }
+
+    .profile {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 390px);
+      gap: 38px;
+      align-items: start;
+    }
+
+    .profile-columns {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+      gap: 42px;
+      align-items: start;
+      margin-top: 34px;
+    }
+
+    .profile-block + .profile-block {
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+    }
+
+    .representative-photo {
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      border-radius: var(--radius);
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .journal-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .instagram-module {
+      position: relative;
+    }
+
+    .instagram-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .instagram-toolbar p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .instagram-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--leaf);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .instagram-link svg {
+      width: 28px;
+      height: 28px;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .slide-controls {
+      display: flex;
+      gap: 8px;
+    }
+
+    .icon-button {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(49, 95, 58, .28);
+      background: #fff;
+      color: var(--leaf);
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .instagram-track {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(190px, calc((100% - 56px) / 5));
+      gap: 14px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: 2px 2px 12px;
+      scrollbar-width: thin;
+    }
+
+    .journal-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      scroll-snap-align: start;
+    }
+
+    .journal-card img {
+      height: 150px;
+    }
+
+    .journal-card p {
+      min-height: 118px;
+      padding: 16px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .journal-card a {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      height: 100%;
+    }
+
+    .profile-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+    }
+
+    .profile-list div {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .profile-list dt {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .profile-list dd { margin: 0; }
+
+    .contact {
+      background:
+        linear-gradient(rgba(36, 48, 39, .76), rgba(36, 48, 39, .76)),
+        url("assets/komorebi.jpg") center / cover no-repeat;
+      color: #fff;
+      padding: 92px 0;
+    }
+
+    .contact-box {
+      width: min(760px, 100%);
+    }
+
+    .contact h2 { margin-bottom: 20px; }
+    .contact p {
+      color: rgba(255, 255, 255, .84);
+      font-size: 17px;
+      margin-bottom: 28px;
+    }
+
+    .contact .button {
+      background: #fff;
+      color: var(--leaf);
+    }
+
+    .footer {
+      padding: 28px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .nav a:not(.button) { display: none; }
+      .hero {
+        min-height: auto;
+        padding-top: 96px;
+        background: url("assets/hero-field.jpg") center bottom / cover no-repeat;
+      }
+      .hero-inner,
+      .section-head,
+      .mission-grid,
+      .story,
+      .profile,
+      .profile-columns {
+        grid-template-columns: 1fr;
+      }
+      .hero-inner {
+        min-height: 760px;
+        align-content: space-between;
+      }
+      .service-grid,
+      .pillars,
+      .journal-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .header-inner { min-height: 62px; }
+      .brand-logo {
+        width: 104px;
+        height: 40px;
+      }
+      .nav .button {
+        min-height: 40px;
+        padding: 8px 12px;
+        font-size: 13px;
+      }
+      .hero {
+        padding-top: 84px;
+        background-position: 57% bottom;
+      }
+      .hero-inner { min-height: 720px; }
+      h1 { font-size: 41px; }
+      h1 { white-space: normal; }
+      .mobile-title-break { display: block; }
+      .lead { font-size: 17px; }
+      .section { padding: 64px 0; }
+      .quote-panel { padding: 24px; }
+      .image-tall { min-height: 340px; }
+      .service-grid,
+      .pillars,
+      .journal-grid {
+        grid-template-columns: 1fr;
+      }
+      .instagram-toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .instagram-track {
+        grid-auto-columns: minmax(250px, 82%);
+      }
+      .profile-list div {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="株式会社tabekifu">
+        <img class="brand-logo" src="assets/tabekifu-logo.jpg" alt="tabekifu">
+      </a>
+      <nav class="nav" aria-label="ページ内ナビゲーション">
+        <a href="#about">tabekifuについて</a>
+        <a href="#work">事業内容</a>
+        <a href="#natural-farming">自然栽培とは</a>
+        <a href="#profile">プロフィール</a>
+        <a href="#journal">活動記録</a>
+        <a class="button secondary" href="#contact">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="坂入千佳の紹介">
+      <div class="hero-inner">
+        <div>
+          <h1>土を通じて、<span class="mobile-title-break"></span>人と社会を整える。</h1>
+          <p class="lead">自然栽培を軸に、食・心・農業・組織をつなぎ、健やかな循環が生まれる社会づくりを目指します。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#contact">お問い合わせ</a>
+            <a class="button secondary" href="https://www.instagram.com/chika_sakairi/">Instagramを見る</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="inner">
+        <div class="section-head">
+          <h2>tabekifuについて</h2>
+          <p>株式会社tabekifuは、自然栽培の考え方を軸に、農業体験・リトリート、人事・組織サポート、プロジェクトやイベントの企画運営を行っています。</p>
+        </div>
+        <div class="mission-grid">
+          <div class="quote-panel">
+            <strong>余計なものを足さず、本来の力を引き出す。</strong>
+            <p>農薬や化学肥料に頼らず、土本来の力を引き出す自然栽培。その哲学は、人が本来持っている資質を活かすことにも通じています。tabekifuは、自然栽培を農業だけでなく、人の生き方・働き方・社会づくりへ広げていきます。</p>
+          </div>
+          <div class="image-tall">
+            <img src="assets/about-field.jpg" alt="田んぼと人がいる自然栽培の風景">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="work">
+      <div class="inner">
+        <div class="section-head">
+          <h2>4つの事業領域</h2>
+        </div>
+        <p class="service-intro">私たちの身体は、水、土壌から届くミネラル、植物が生み出す酸素、微生物との関係の中で成り立っています。心もまた、自然とのつながりや、社会に役立っているという実感によって整いやすくなります。だからtabekifuは、自然栽培を単なる農法としてではなく、「人は自然の一部である」ことを体験として取り戻す入口と考えています。土に触れ、食を育み、人と自然の循環を感じること。その実感を、個人のリトリート、組織づくり、地域プロジェクト、資質を活かす対話へ広げていくために、4つの事業領域を置いています。</p>
+        <div class="service-grid">
+          <article class="service">
+            <div>
+              <div class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64">
+                  <path d="M12 45c9 4 30 4 40 0" />
+                  <path d="M20 45c2-11 8-18 12-22 4 4 10 11 12 22" />
+                  <path d="M32 23V11" />
+                  <path d="M32 18c-8-1-12-5-14-10 8 0 13 4 14 10Z" />
+                  <path d="M32 20c8-1 12-5 14-10-8 0-13 4-14 10Z" />
+                </svg>
+              </div>
+              <h3>自然栽培体験・リトリート</h3>
+              <p>土に触れ、自然のリズムの中で過ごす体験を通じて、自分自身の内面と向き合う時間をつくります。</p>
+            </div>
+            <span></span>
+          </article>
+          <article class="service">
+            <div>
+              <div class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64">
+                  <circle cx="32" cy="18" r="8" />
+                  <path d="M18 50c2-12 9-19 14-19s12 7 14 19" />
+                  <circle cx="14" cy="28" r="6" />
+                  <circle cx="50" cy="28" r="6" />
+                  <path d="M6 51c1-8 5-13 10-15" />
+                  <path d="M58 51c-1-8-5-13-10-15" />
+                </svg>
+              </div>
+              <h3>人事・組織サポート</h3>
+              <p>個人の資質や役割に着目し、一人ひとりが本来の力を発揮できる組織づくりを支援します。</p>
+            </div>
+            <span></span>
+          </article>
+          <article class="service">
+            <div>
+              <div class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64">
+                  <rect x="13" y="16" width="38" height="36" rx="4" />
+                  <path d="M22 12v9" />
+                  <path d="M42 12v9" />
+                  <path d="M13 27h38" />
+                  <path d="M23 38h7" />
+                  <path d="M35 38h7" />
+                  <path d="M23 46h18" />
+                </svg>
+              </div>
+              <h3>プロジェクト・イベント企画運営</h3>
+              <p>自然栽培、食、地域、ウェルビーイングをテーマにした企画の設計から運営までをサポートします。</p>
+            </div>
+            <span></span>
+          </article>
+          <article class="service">
+            <div>
+              <div class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64">
+                  <path d="M14 18h36a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H34l-10 9v-9H14a4 4 0 0 1-4-4V22a4 4 0 0 1 4-4Z" />
+                  <path d="M22 29h20" />
+                  <path d="M22 36h13" />
+                  <path d="M28 12c3-3 7-3 10 0" />
+                </svg>
+              </div>
+              <h3>資質学カウンセリング</h3>
+              <p>一人ひとりが持つ資質や役割を知り、活かすことで、自分や周りとのつながりを取り戻すための対話を行います。</p>
+              <a class="service-link" href="https://sisitsu.com/">資質学サイトを見る</a>
+            </div>
+            <span></span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="natural-farming">
+      <div class="inner story">
+        <div class="story-image">
+          <img src="assets/seedlings.jpg" alt="自然栽培につながる苗の風景">
+        </div>
+        <div class="story-copy">
+          <p class="eyebrow">Natural Farming</p>
+          <h2>自然栽培とは</h2>
+          <p>自然栽培とは、農薬・化学肥料・除草剤を使わず、土本来の力と自然の循環を活かして作物を育てる農法です。</p>
+          <p>tabekifuは、自然栽培を単なる農法としてではなく、人と社会のあり方を見つめ直すための考え方として捉えています。土を整えること。余計なものを足さないこと。本来の力を引き出すこと。その思想は、農業だけでなく、暮らし、働き方、組織づくりにもつながります。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="inner">
+        <div class="section-head">
+          <h2>なぜ自然栽培なのか</h2>
+          <p>土の力、自然の循環、生物多様性、環境負荷の低減。自然栽培には、食と農だけではなく、人の気づきや社会の再生につながる視点があります。</p>
+        </div>
+        <div class="pillars">
+          <article class="pillar">
+            <img src="assets/komorebi.jpg" alt="木漏れ日の差す木々">
+            <h3>自然の循環</h3>
+            <p>目に見える作物だけではなく、土、微生物、光、水、季節の巡りを含めて環境を捉えます。</p>
+          </article>
+          <article class="pillar">
+            <img src="assets/seedlings.jpg" alt="プランターで育つ苗">
+            <h3>本来の力</h3>
+            <p>何かを足しすぎるのではなく、そのものが持つ力が働く環境を整えることを大切にします。</p>
+          </article>
+          <article class="pillar">
+            <img src="assets/blossom.jpg" alt="春の花と木々">
+            <h3>人と社会へ</h3>
+            <p>自然栽培の思想を、暮らし、働き方、組織づくり、地域や社会のプロジェクトへ応用します。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="profile">
+      <div class="inner">
+        <p class="eyebrow">Profile / Company</p>
+        <h2>代表・会社プロフィール</h2>
+        <div class="philosophy-note">
+          <p>自然栽培は、「植物を自分の思い通りに育てる技術」ではないと感じています。植物の生命力を信じ、土の力を信じ、見えない微生物を信じ、季節を信じ、待つ。そこには、自分が支配者ではないことを受け入れる営みがあります。祈りも、とても似ています。祈るとき、人は「自分ではどうにもできないこと」を受け入れます。だから祈りには謙虚さがあります。自然栽培にも、同じ謙虚さがあります。AWE体験も、大自然に圧倒され、「謙虚であれ」と受けとる体験です。私は、その感覚を大切にしながら、土を通じて人と社会を整える活動を続けています。</p>
+        </div>
+        <div class="profile-columns">
+          <div class="profile-block">
+            <div class="representative-photo">
+              <img src="assets/chika-portrait.png" alt="畑で植物に触れる坂入千佳">
+            </div>
+            <h3>代表プロフィール</h3>
+            <p>坂入千佳。新潟県新潟市出身。武蔵大学で経営組織論を学び、卒業後は事務職、秘書、ブリーダー、医療専門誌の編集など、多様な分野で経験を積む。現在は一般社団法人シゼンタイ理事、株式会社tabekifu代表として、自然栽培を通じた体験、対話、企画運営を行い、人と社会のウェルビーイング向上に取り組んでいます。</p>
+            <dl class="profile-list">
+              <div>
+                <dt>出身地</dt>
+                <dd>新潟県新潟市</dd>
+              </div>
+              <div>
+                <dt>拠点</dt>
+                <dd>新潟県 / 東京都</dd>
+              </div>
+              <div>
+                <dt>学歴</dt>
+                <dd>武蔵大学 経営組織論専攻</dd>
+              </div>
+              <div>
+                <dt>関連団体</dt>
+                <dd><a href="https://shizen-tai.jp/">一般社団法人シゼンタイ</a></dd>
+              </div>
+            </dl>
+          </div>
+          <div class="profile-block">
+            <h3>会社プロフィール</h3>
+            <p>株式会社tabekifuは、自然栽培を軸に、農業体験・リトリート、人事・組織サポート、プロジェクトやイベントの企画運営を行う共創プロジェクトコンサルティングカンパニーです。</p>
+            <dl class="profile-list">
+              <div>
+                <dt>社名</dt>
+                <dd>株式会社tabekifu</dd>
+              </div>
+              <div>
+                <dt>代表名</dt>
+                <dd>坂入 千佳</dd>
+              </div>
+              <div>
+                <dt>住所</dt>
+                <dd>東京都渋谷区〇〇 1-2-3（仮）</dd>
+              </div>
+              <div>
+                <dt>問い合わせ先</dt>
+                <dd>info@tabekifu.com（仮）</dd>
+              </div>
+              <div>
+                <dt>URL</dt>
+                <dd><a href="https://tabekifu.com/">https://tabekifu.com/</a></dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="journal">
+      <div class="inner">
+        <div class="section-head">
+          <h2>活動記録</h2>
+          <p>Instagramの投稿を起点に、tabekifuの活動とまなざしを時系列で表示します。</p>
+        </div>
+        <div class="instagram-module">
+          <div class="instagram-toolbar">
+            <a class="instagram-link" href="https://www.instagram.com/chika_sakairi/" aria-label="Instagramで最新情報を見る">
+              <svg viewBox="0 0 32 32" aria-hidden="true">
+                <rect x="7" y="7" width="18" height="18" rx="6" />
+                <circle cx="16" cy="16" r="4.2" />
+                <circle cx="21.5" cy="10.5" r="1" />
+              </svg>
+              <span>最新情報はInstagramで見る</span>
+            </a>
+            <div class="slide-controls" aria-label="投稿スライド操作">
+              <button class="icon-button" type="button" data-slide="prev" aria-label="前の投稿へ">‹</button>
+              <button class="icon-button" type="button" data-slide="next" aria-label="次の投稿へ">›</button>
+            </div>
+          </div>
+          <div class="instagram-track" id="instagram-track" aria-label="Instagram投稿一覧">
+          <article class="journal-card">
+            <a href="https://www.instagram.com/chika_sakairi/">
+              <img src="assets/hero-field.jpg" alt="小田原の田んぼ">
+              <p>小田原の田んぼ。人と自然が同じ風景の中にある時間。</p>
+            </a>
+          </article>
+          <article class="journal-card">
+            <a href="https://www.instagram.com/chika_sakairi/">
+              <img src="assets/seedlings.jpg" alt="育苗の風景">
+              <p>三重から届いた育苗の風景。小さな芽に、次の季節の始まりを見る。</p>
+            </a>
+          </article>
+          <article class="journal-card">
+            <a href="https://www.instagram.com/chika_sakairi/">
+              <img src="assets/blossom.jpg" alt="春の花">
+              <p>ふるさとの風景から、自然とのつながりを見つめる。</p>
+            </a>
+          </article>
+          <article class="journal-card">
+            <a href="https://www.instagram.com/chika_sakairi/">
+              <img src="assets/komorebi.jpg" alt="木漏れ日の風景">
+              <p>日常のすぐそばにある自然から、心と身体のリズムを感じる。</p>
+            </a>
+          </article>
+          <article class="journal-card">
+            <a href="https://www.instagram.com/chika_sakairi/">
+              <img src="assets/chika-portrait.png" alt="坂入千佳のプロフィール写真">
+              <p>自然栽培を起点に、体験、対話、企画運営を社会へ届けていく。</p>
+            </a>
+          </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="inner">
+        <div class="contact-box">
+          <p class="eyebrow">Contact</p>
+          <h2>活動に関するご相談、取材・協業の問い合わせへ。</h2>
+          <p>自然栽培体験・リトリートへの参加相談、法人向けの人事・組織サポート、研修、プロジェクト企画、取材・登壇・コメント依頼など、お気軽にお問い合わせください。</p>
+          <a class="button" href="https://www.instagram.com/chika_sakairi/">Instagramで問い合わせる</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="inner">© 株式会社tabekifu</div>
+  </footer>
+  <script>
+    const instagramTrack = document.querySelector("#instagram-track");
+    document.querySelectorAll("[data-slide]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const direction = button.dataset.slide === "next" ? 1 : -1;
+        instagramTrack.scrollBy({
+          left: direction * Math.min(instagramTrack.clientWidth, 520),
+          behavior: "smooth"
+        });
+      });
+    });
+  </script>
+</body>
+</html>
